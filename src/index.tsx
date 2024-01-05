@@ -3,13 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CharacterProvider from './context/CharacterProvider';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const rootElement = document.getElementById('root') as HTMLElement;
+
+// Asegúrate de que la raíz existe antes de intentar agregar la clase
+if (rootElement) {
+  rootElement.classList.add('colorBg');
+  rootElement.classList.add('minVh');
+}
+const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <CharacterProvider>
+      <App />
+    </CharacterProvider>
   </React.StrictMode>
 );
 
